@@ -1,0 +1,46 @@
+body {
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  min-height: 100vh;
+}
+
+.preview {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.tool-section {
+  display: none;
+  margin-top: 2rem;
+}
+
+.tool-section.active {
+  display: block;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.color-box {
+  height: 80px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.color-box:hover {
+  transform: scale(1.05);
+}
+
+.hex-code {
+  font-family: monospace;
+  color: #333;
+}
