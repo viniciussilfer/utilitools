@@ -234,3 +234,31 @@ function validarCPF() {
   resultado.textContent = "CPF válido!";
   resultado.style.color = 'green';
 }
+
+// CONVERSOR DE LINK DO GOOGLE DRIVE
+function converterDriveLink() {
+  const input = document.getElementById('inputDriveLink').value.trim();
+  const output = document.getElementById('outputDriveLink');
+  const copiarBtn = document.getElementById('copiarBtn');
+
+  const match = input.match(/\/d\/([a-zA-Z0-9_-]+)\//);
+  const id = match ? match[1] : null;
+
+  if (id) {
+    const directLink = `https://drive.google.com/uc?export=view&id=${id}`;
+    output.value = directLink;
+    output.style.display = 'block';
+    copiarBtn.style.display = 'inline-block';
+  } else {
+    alert("Link inválido. Certifique-se de colar um link no formato correto do Google Drive.");
+    output.style.display = 'none';
+    copiarBtn.style.display = 'none';
+  }
+}
+
+function copiarLink() {
+  const output = document.getElementById('outputDriveLink');
+  output.select();
+  document.execCommand("copy");
+  alert("Link copiado para a área de transferência!");
+}
