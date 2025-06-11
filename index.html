@@ -23,13 +23,13 @@
               <li><a class="dropdown-item" href="#" onclick="showTool('compressor')">Compressor</a></li>
               <li><a class="dropdown-item" href="#" onclick="showTool('conversor')">Conversor de Formato</a></li>
               <li><a class="dropdown-item" href="#" onclick="showTool('paleta')">Gerador de Paleta</a></li>
+              <li><a class="dropdown-item" href="#" onclick="showTool('driveLink')">Conversor de Link (Drive)</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Segurança e Dados</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" onclick="showTool('cpfcnpj')">Validador de CPF</a></li>
-              <!-- Futuro: CNPJ, Gerador de Senhas -->
             </ul>
           </li>
         </ul>
@@ -93,6 +93,22 @@
         </div>
         <button class="btn btn-primary mb-3" onclick="validarCPF()">Validar CPF</button>
         <div id="resultadoCPF" class="fw-bold"></div>
+      </div>
+    </div>
+
+    <!-- CONVERSOR DE LINK GOOGLE DRIVE -->
+    <div id="driveLink" class="tool-section">
+      <div class="card text-center mt-4">
+        <h3 class="mb-3"><i class="bi bi-link-45deg"></i> Conversor de Link do Google Drive</h3>
+        <p class="text-muted">Cole o link compartilhável de uma imagem no Google Drive e gere um link direto para uso em sites.</p>
+        <div class="mb-3">
+          <input type="text" id="inputDriveLink" class="form-control" placeholder="Cole o link do Google Drive aqui">
+        </div>
+        <button class="btn btn-primary mb-3" onclick="converterDriveLink()">Converter Link</button>
+        <div class="mb-3">
+          <input type="text" id="outputDriveLink" class="form-control text-center" readonly style="display:none;">
+          <button class="btn btn-success mt-2" onclick="copiarLink()" id="copiarBtn" style="display:none;"><i class="bi bi-clipboard"></i> Copiar</button>
+        </div>
       </div>
     </div>
   </div>
