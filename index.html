@@ -23,7 +23,7 @@
               <li><a class="dropdown-item" href="#" onclick="showTool('compressor')">Compressor</a></li>
               <li><a class="dropdown-item" href="#" onclick="showTool('conversor')">Conversor de Formato</a></li>
               <li><a class="dropdown-item" href="#" onclick="showTool('paleta')">Gerador de Paleta</a></li>
-              <li><a class="dropdown-item" href="#" onclick="showTool('driveLink')">Conversor de Link (Drive)</a></li>
+              <li><a class="dropdown-item" href="#" onclick="showTool('driveid')">Extrair ID do Drive</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -38,6 +38,7 @@
   </nav>
 
   <div class="container my-5">
+
     <!-- COMPRESSOR -->
     <div id="compressor" class="tool-section active">
       <div class="card text-center">
@@ -96,21 +97,18 @@
       </div>
     </div>
 
-    <!-- CONVERSOR DE LINK GOOGLE DRIVE -->
-    <div id="driveLink" class="tool-section">
+    <!-- EXTRATOR DE ID DO GOOGLE DRIVE -->
+    <div id="driveid" class="tool-section">
       <div class="card text-center mt-4">
-        <h3 class="mb-3"><i class="bi bi-link-45deg"></i> Conversor de Link do Google Drive</h3>
-        <p class="text-muted">Cole o link compartilhável de uma imagem no Google Drive e gere um link direto para uso em sites.</p>
-        <div class="mb-3">
-          <input type="text" id="inputDriveLink" class="form-control" placeholder="Cole o link do Google Drive aqui">
-        </div>
-        <button class="btn btn-primary mb-3" onclick="converterDriveLink()">Converter Link</button>
-        <div class="mb-3">
-          <input type="text" id="outputDriveLink" class="form-control text-center" readonly style="display:none;">
-          <button class="btn btn-success mt-2" onclick="copiarLink()" id="copiarBtn" style="display:none;"><i class="bi bi-clipboard"></i> Copiar</button>
-        </div>
+        <h3 class="mb-3"><i class="bi bi-link-45deg"></i> Extrair ID do Google Drive</h3>
+        <p class="text-muted">Cole abaixo um link compartilhável do Google Drive para extrair apenas o ID do arquivo.</p>
+        <input type="text" id="inputDriveLink" class="form-control mb-3" placeholder="https://drive.google.com/..." />
+        <button class="btn btn-primary mb-3" onclick="converterDriveLink()">Extrair ID</button>
+        <input type="text" id="outputDriveLink" class="form-control text-center mb-2" readonly style="display:none;" />
+        <button class="btn btn-success" id="copiarBtn" onclick="copiarLink()" style="display:none;">Copiar ID</button>
       </div>
     </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
