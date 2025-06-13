@@ -235,30 +235,29 @@ function validarCPF() {
   resultado.style.color = 'green';
 }
 
-// CONVERSOR DE LINK DO GOOGLE DRIVE
+// CONVERSOR DE LINK DO GOOGLE DRIVE → ID
 function converterDriveLink() {
-  const input = document.getElementById('inputDriveLink').value.trim();
-  const output = document.getElementById('outputDriveLink');
-  const copiarBtn = document.getElementById('copiarBtn');
+  const input = document.getElementById("inputDriveLink").value.trim();
+  const output = document.getElementById("outputDriveLink");
+  const copiarBtn = document.getElementById("copiarBtn");
 
-  const match = input.match(/\/d\/([a-zA-Z0-9_-]+)\//);
-  const id = match ? match[1] : null;
+  const regex = /\/d\/([a-zA-Z0-9_-]{25,})|id=([a-zA-Z0-9_-]{25,})|file\/d\/([a-zA-Z0-9_-]{25,})/;
+  const match = input.match(regex);
+
+  const id = match ? (match[1] || match[2] || match[3]) : null;
 
   if (id) {
-    const directLink = `https://drive.google.com/uc?export=view&id=${id}`;
-    output.value = directLink;
-    output.style.display = 'block';
-    copiarBtn.style.display = 'inline-block';
+    output.value = id;
+    output.style.display = "block";
+    copiarBtn.style.display = "inline-block";
   } else {
-    alert("Link inválido. Certifique-se de colar um link no formato correto do Google Drive.");
-    output.style.display = 'none';
-    copiarBtn.style.display = 'none';
+    alert("Link inválido ou não contém ID.");
   }
 }
 
 function copiarLink() {
-  const output = document.getElementById('outputDriveLink');
+  const output = document.getElementById("outputDriveLink");
   output.select();
   document.execCommand("copy");
-  alert("Link copiado para a área de transferência!");
+  alert("ID copiado!");
 }
